@@ -8,7 +8,15 @@
 </head>
 
 <body>
-    <h2>Tu będą moje filmy</h2>
+    {% if filmy|length == 0 %}
+    <h2>Brak filmów </h2>
+    {% else %}
+    <h2>Ilość filmów w BD: {{ filmy|length }}</h2>
+
+    {% for film in filmy%}
+    <p>{{ film }}</p>
+    {% endfor %}
+    {% endif%}
 </body>
 
 </html>
