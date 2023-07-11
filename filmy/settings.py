@@ -120,6 +120,8 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = ['moje_static']
 MEDIA_URL = '/media/'
 MEDIA_ROOT = 'moje_media'
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'wszystkie_filmy'
 
 
 # Default primary key field type
