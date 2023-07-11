@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .models import Film
 from .forms import FilmForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def wszystkie_filmy(request):
@@ -20,6 +21,7 @@ def nowy_film(request):
       
     return render(request, 'film_form.html', {'form': form})
 
+@login_required
 def edytuj_filmy(request, id):
     film = get_object_or_404(Film, pk=id)
     form = FilmForm(request.POST or None, request.FILES or None, instance=film)
@@ -30,6 +32,7 @@ def edytuj_filmy(request, id):
 
     return render(request, 'film_form.html', {'form': form})
 
+@login_required
 def usuń_film(request, id):
     film = get_object_or_404(Film, pk=id)
 
